@@ -1,20 +1,33 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import { UserContext } from "../UserContext";
+import { UserContext } from "../context/UserContext";
+import MenuButton from "../pages/MenuButton";
+import DropdownMenu from "./DropdownMenu";
 
 function Navbar() {
   const { user } = useContext(UserContext);
   const [name, setName] = useState("");
+  const [userRole, setUserRole] = useState("");
+  const [showMenuDisplay, setShowMenuDisplay] = useState(false);
   useEffect(() => {
     const getName = !!user && user.name;
+    const getuserRole = !!user && user.role;
     setName(getName);
+    setUserRole(getuserRole);
+    console.log({ userRole });
     console.log(getName);
   }, [user]);
+
+  const showMenu = () => {
+    setShowMenuDisplay(!showMenuDisplay);
+  };
 
   return (
     <div className="w-3/4 mx-auto py-2">
       <header className="p-4 flex justify-between">
-        <Link to="/" className="flex items-center gap-1">
+        <Link
+          to={userRole === "user" ? "/" : "/account"}
+          className="flex items-center gap-1">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -28,51 +41,35 @@ function Navbar() {
               d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
             />
           </svg>
-          <span className="font-bold uppercase text-lg">airbnb</span>
+          <span className="font-bold uppercase text-lg">HomeNest</span>
         </Link>
 
-        <div className="flex gap-2 shadow-md shadow-gray-300 border border-gray-300  rounded-full py-2 px-4 font-medium">
-          <div>Anywhere</div>
-          <div className="border-r border-gray-300"></div>
-
-          <div>Any Week</div>
-          <div className="border-r border-gray-300"></div>
-          <div>Add guests</div>
-          <button className="bg-primary text-white p-2 rounded-full">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth="1.5"
-              stroke="currentColor"
-              class="w-4 h-4">
-              <path
-                stroke-linecap="round"
-                strokeLinejoin="round"
-                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
-              />
-            </svg>
-          </button>
-        </div>
-
         <div className="flex items-center gap-2  border border-gray-300  rounded-full py-2 px-4">
-          <div>
+          <button onClick={showMenu} className="text-lg bg-transparent">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
               viewBox="0 0 24 24"
               strokeWidth={1.5}
               stroke="currentColor"
-              className="w-6 h-6">
+              className="w-8 h-8">
               <path
                 strokeLinecap="round"
                 strokeLinejoin="round"
                 d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5"
               />
             </svg>
-          </div>
+          </button>
           <Link
-            to={user ? "/account" : "/login"}
+            to={
+              userRole === "user"
+                ? user
+                  ? "useraccountprofile"
+                  : "/login"
+                : user
+                ? "/account"
+                : "/login"
+            }
             className="bg-gray-500 text-white border border-gray-500  rounded-full overflow-hidden">
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -89,6 +86,8 @@ function Navbar() {
           {!!user && <div>{name}</div>}
         </div>
       </header>
+
+      {showMenuDisplay && <DropdownMenu />}
     </div>
   );
 }

@@ -4,8 +4,9 @@ import { Link, Navigate, useParams } from "react-router-dom";
 import PlacesPage from "./PlacesPage";
 import axios from "axios";
 import AccountNav from "../components/AccountNav";
+import MenuButton from "./MenuButton";
 
-function AccountPage() {
+function UserAccountProfile() {
   const { ready, user, setUser } = useContext(UserContext);
   const [redirect, setRedirect] = useState("");
 
@@ -32,10 +33,8 @@ function AccountPage() {
   if (redirect) {
     return <Navigate to={redirect} />;
   }
-
   return (
     <div>
-      <AccountNav />
       {subpage === "profile" && (
         <div className="text-center max-w-lg mx-auto">
           Logged in as {user.name}({user.email})<br></br>
@@ -54,4 +53,4 @@ function AccountPage() {
   );
 }
 
-export default AccountPage;
+export default UserAccountProfile;

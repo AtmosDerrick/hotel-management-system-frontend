@@ -1,9 +1,9 @@
 import React, { useContext, useEffect, useState } from "react";
 import { Link, Navigate } from "react-router-dom";
 import axios from "axios";
-import { UserContext } from "../context/UserContext";
+import { UserContext } from "../../context/UserContext";
 
-function Login() {
+function OwnerLogin() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [redirect, setRedirect] = useState(false);
@@ -12,7 +12,7 @@ function Login() {
   const submitLogin = async (e) => {
     e.preventDefault();
     try {
-      const userInfo = await axios.post("/login", {
+      const userInfo = await axios.post("/ownerlogin", {
         email,
         password,
       });
@@ -22,12 +22,13 @@ function Login() {
 
       setRedirect(true);
     } catch (e) {
+      console.log(e);
       alert("Login fail fail. Please try again letter");
     }
   };
 
   if (redirect) {
-    return <Navigate to="/" />;
+    return <Navigate to="/account" />;
   }
   return (
     <div className="w-3/4 mx-auto mt-4 grow flex items-center justify-around ">
@@ -53,7 +54,7 @@ function Login() {
           <button className="login primary">Login</button>
           <div className="text-center text-400 mt-4">
             Don't have an account yet?{" "}
-            <Link className="underline text-black" to="/register">
+            <Link className="underline text-black" to="/ownerregister">
               Register Now
             </Link>
           </div>
@@ -63,4 +64,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default OwnerLogin;

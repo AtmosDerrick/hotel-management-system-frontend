@@ -61,25 +61,12 @@ function PerksLabel({ selected, onChange }) {
         <label className="border p-4 flex rounded-2xl  gap-2 items-center w-full cursor-pointer ">
           <input
             type="checkbox"
-            checked={selected.includes("tv")}
-            name="tv"
+            checked={selected.includes("double bed")}
+            name="double bed"
             onChange={handleCheckboxClick}
           />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="1.5"
-            stroke="currentColor"
-            class="w-6 h-6">
-            <path
-              stroke-linecap="round"
-              strokeLinejoin="round"
-              d="M6 20.25h12m-7.5-3v3m3-3v3m-10.125-3h17.25c.621 0 1.125-.504 1.125-1.125V4.875c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v11.25c0 .621.504 1.125 1.125 1.125z"
-            />
-          </svg>
-
-          <span>Tv</span>
+          <i class="fa-solid fa-bed"></i>
+          <span>Double bed</span>
         </label>
         <label className="border p-4 flex rounded-2xl  gap-2 items-center w-full cursor-pointer ">
           <input
@@ -88,49 +75,44 @@ function PerksLabel({ selected, onChange }) {
             name="air condition"
             onChange={handleCheckboxClick}
           />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
-            />
-          </svg>
+          <i class="fa-solid fa-temperature-low "></i>
 
           <span>Air condition</span>
         </label>
         <label className="border p-4 flex rounded-2xl  gap-2 items-center w-full cursor-pointer ">
           <input
             type="checkbox"
-            checked={selected.includes("compound")}
-            name="compound"
+            checked={selected.includes("Restaurant")}
+            name="Restaurant"
             onChange={handleCheckboxClick}
           />
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-6 h-6">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-            />
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M9 9.563C9 9.252 9.252 9 9.563 9h4.874c.311 0 .563.252.563.563v4.874c0 .311-.252.563-.563.563H9.564A.562.562 0 019 14.437V9.564z"
-            />
-          </svg>
+          <i class="fa-solid fa-utensils fa-2x"></i>
 
-          <span>Compound</span>
+          <span>Restaurant </span>
+        </label>
+
+        <label className="border p-4 flex rounded-2xl  gap-2 items-center w-full cursor-pointer ">
+          <input
+            type="checkbox"
+            checked={selected.includes("Spa")}
+            name="Spa"
+            onChange={handleCheckboxClick}
+          />
+          <i class="fa-solid fa-spa "></i>
+
+          <span>Spa</span>
+        </label>
+
+        <label className="border p-4 flex rounded-2xl  gap-2 items-center w-full cursor-pointer ">
+          <input
+            type="checkbox"
+            checked={selected.includes("Event Space")}
+            name="Event Space"
+            onChange={handleCheckboxClick}
+          />
+          <i class="fa-solid fa-champagne-glasses "></i>
+
+          <span>Spa</span>
         </label>
       </div>
     </div>

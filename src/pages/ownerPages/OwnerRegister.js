@@ -2,19 +2,20 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function Register() {
+function OwnerRegister() {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [role, setRole] = useState("user");
+  const [role, setRole] = useState("owner");
 
   async function registerUser(e) {
     e.preventDefault();
     try {
-      await axios.post("/register", {
+      await axios.post("/ownerregister", {
         name,
         role,
         email,
+
         password,
       });
 
@@ -57,7 +58,7 @@ function Register() {
               setPassword(e.target.value);
             }}
           />
-          <button className="login primary">Login</button>
+          <button className="login primaryowner">Login</button>
           <div className="text-center text-400 mt-4">
             Already a member?
             <Link className="underline text-black" to="/login">
@@ -70,4 +71,4 @@ function Register() {
   );
 }
 
-export default Register;
+export default OwnerRegister;
