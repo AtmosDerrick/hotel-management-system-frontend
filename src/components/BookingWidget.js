@@ -29,30 +29,43 @@ function BookingWidget({ place }) {
   }
 
   const bookThisPlace = async () => {
-    const data = {
-      checkIn,
-      checkOut,
-      numberOfGuest,
-      name,
-      owner: place.owner,
-      mobile,
-      place: place._id,
+    if (!user) {
+      return setRedirect("/login");
+    } else {
+      if (
+        checkIn === "" ||
+        checkOut === "" ||
+        name === "" ||
+        numberOfGuest === ""
+      ) {
+        return alert("Fill in the inputs");
+      } else {
+        const data = {
+          checkIn,
+          checkOut,
+          numberOfGuest,
+          name,
+          owner: place.owner,
+          mobile,
+          place: place._id,
 
-      price: numberOfdays * place.price,
-    };
-    const response = await axios.post("/bookings", {
-      checkIn,
-      checkOut,
-      numberOfGuest,
-      name,
-      mobile,
-      owner: place.owner,
+          price: numberOfdays * place.price,
+        };
+        const response = await axios.post("/bookings", {
+          checkIn,
+          checkOut,
+          numberOfGuest,
+          name,
+          mobile,
+          owner: place.owner,
 
-      place: place._id,
-      price: numberOfdays * place.price,
-    });
-    const bookingId = response.data._id;
-    setRedirect(`/account/bookings/${bookingId}`);
+          place: place._id,
+          price: numberOfdays * place.price,
+        });
+        const bookingId = response.data._id;
+        setRedirect(`/account/bookings/${bookingId}`);
+      }
+    }
   };
 
   if (redirect) {
@@ -63,7 +76,7 @@ function BookingWidget({ place }) {
     <div>
       <div className=" ">
         <div className="border rounded-2xl my-4">
-          <div className="text-2xl text-center">
+          <div className="text-2xl text-center text-primary font-bold">
             Price: Ghc {place.price} / Per Night
           </div>
           <div className="flex ">
@@ -114,7 +127,7 @@ function BookingWidget({ place }) {
           </div>
         )}
 
-        <button className="primary" onClick={bookThisPlace}>
+        <button className="primary bg-primary" onClick={bookThisPlace}>
           Book this Place{" "}
           {numberOfdays > 0 && <span>Ghc {numberOfdays * place.price}</span>}
         </button>

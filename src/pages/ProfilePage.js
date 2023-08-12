@@ -34,10 +34,10 @@ function AccountPage() {
   }
 
   return (
-    <div>
+    <div className="mt-4">
       <AccountNav />
       {subpage === "profile" && (
-        <div className="text-center max-w-lg mx-auto">
+        <div className="text-center max-w-lg mx-auto ">
           Logged in as {user.name}({user.email})<br></br>
           <button onClick={logout} className="max-w-sm primary mt-2">
             Logout

@@ -4,6 +4,7 @@ import {
   useJsApiLoader,
   Marker,
   DirectionsRenderer,
+  LoadScript,
 } from "@react-google-maps/api";
 
 function GoogleMapContainer({ bookings }) {
@@ -21,7 +22,7 @@ function GoogleMapContainer({ bookings }) {
   });
 
   useEffect(() => {
-    if (navigator.geolocation) {
+    if (navigator.geolocation && isLoaded) {
       navigator.geolocation.getCurrentPosition(
         (position) => {
           const { latitude, longitude } = position.coords;
@@ -114,7 +115,9 @@ function GoogleMapContainer({ bookings }) {
             fullscreenControl: true,
           }}
           onLoad={(map) => {
-            setMap(map);
+            {
+              map && setMap(map);
+            }
           }}>
           <Marker position={center} />
           {directionResponse && (

@@ -15,10 +15,12 @@ function DropdownMenu() {
     setUser(null);
   };
   return (
-    <div className="absolute w-1/4 bg-gray-100 bg-opacity-90 rounded-2xl border border-2 top-24 right-36 z-50">
+    <div className="absolute w-full lg:w-1/4 bg-gray-100 lg:bg-opacity-90 rounded-2xl border border-2 lg:top-24 lg:right-36 z-50">
       <div className=" border-b-2 border-gray-500">
         {!user && (
-          <Link className="py-2 px-6 inline-flex  text-gray-900 font-bold text-xl gap-2">
+          <Link
+            className="py-2 px-6 inline-flex  text-gray-900 font-bold text-xl gap-2"
+            to="/login">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -58,7 +60,7 @@ function DropdownMenu() {
           ""
         )}
       </div>
-      {user.role === "user" ? user ? <MenuButton /> : "" : ""}
+      {user && !!user.role && <MenuButton />}
     </div>
   );
 }

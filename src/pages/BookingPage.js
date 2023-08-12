@@ -31,7 +31,7 @@ function BookingPage() {
     return;
   }
   return (
-    <div className="w-3/4 mx-auto my-8">
+    <div className="w-full px-2 lg:px-0 lg:w-3/4 mx-auto my-8">
       <h1 className="text-3xl py-2 font-bold ">{bookings.place.title}</h1>
       <AddressLink className={"flex  gap-2 my-2 font-sans font-semibold"}>
         {bookings.place.address}

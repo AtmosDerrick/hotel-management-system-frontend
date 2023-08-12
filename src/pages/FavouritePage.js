@@ -36,7 +36,7 @@ function FavouritePage() {
     }
   };
   return (
-    <div className="w-3/4 mx-auto">
+    <div className="w-full xl:w-3/4 mx-4 lx:mx-auto">
       <div>
         {favourite?.length > 0 &&
           favourite.map((fav) => (

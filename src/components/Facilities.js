@@ -19,68 +19,74 @@ function Facilities({ places, setPlaces, defaultPlace }) {
   };
 
   return (
-    <div className="w-3/4 mx-auto flex justify-between h-auto py-2 mt-8 border-b-2  border-b-gray-700  text-gray-700   px-4">
+    <div className="w-full xl:w-3/4 mx-auto flex justify-between h-auto py-1 lg:py-1 mt-8 border-b-2  border-b-gray-700  text-gray-700   px-4">
       <div
-        className=" items-center h-12 gap-2"
+        className=" items-center h-12 gap-2 cursor-pointer"
         onClick={() => {
           selectFacility("double bed");
         }}>
         <div className="flex justify-center mb-2">
           <i class="fa-solid fa-bed fa-xl "></i>
         </div>
-        <span className="text-lg font-sans"> Double bed</span>
+        <span className="text-lg font-sans hidden lg:block "> Double bed</span>
       </div>
       <div
-        className=" items-center h-12 gap-2"
+        className=" items-center h-12 gap-2 cursor-pointer"
         onClick={() => selectFacility("Restaurant")}>
         <div className="flex justify-center mb-2">
           <i class="fa-solid fa-utensils fa-xl"></i>
         </div>
-        <span className="text-lg font-sans"> Restuarant / Dinning</span>
+        <span className="text-lg font-sans hidden lg:block">
+          {" "}
+          Restuarant / Dinning
+        </span>
       </div>
       <div
-        className=" items-center h-12 gap-2"
+        className=" items-center h-12 gap-2 cursor-pointer"
         onClick={() => selectFacility("wifi")}>
         <div className="flex justify-center mb-2">
           <i class="fa-solid fa-wifi fa-xl"></i>
         </div>
-        <span className="text-lg font-sans"> Wifi</span>
+        <span className="text-lg font-sans hidden lg:block"> Wifi</span>
       </div>
 
       <div
-        className=" items-center h-12 gap-2"
+        className=" items-center h-12 gap-2 cursor-pointer"
         onClick={() => selectFacility("air condition")}>
         <div className="flex justify-center mb-2">
           <i class="fa-solid fa-temperature-low fa-xl"></i>
         </div>
-        <span className="text-lg font-sans"> Air Condition</span>
+        <span className="text-lg font-sans hidden lg:block">
+          {" "}
+          Air Condition
+        </span>
       </div>
 
       <div
-        className=" items-center h-12 gap-2"
+        className=" items-center h-12 gap-2 cursor-pointer"
         onClick={() => selectFacility("Spa")}>
         <div className="flex justify-center mb-2">
           <i class="fa-solid fa-spa fa-xl"></i>
         </div>
-        <span className="text-lg font-sans"> Spa</span>
+        <span className="text-lg font-sans hidden lg:block"> Spa</span>
       </div>
 
       <div
-        className=" items-center h-12 gap-2"
+        className=" items-center h-12 gap-2 cursor-pointer"
         onClick={() => selectFacility("parking spot")}>
         <div className="flex justify-center mb-2">
           <i class="fa-solid fa-car fa-xl"></i>
         </div>
-        <span className="text-lg font-sans"> Car Park</span>
+        <span className="text-lg font-sans hidden lg:block"> Car Park</span>
       </div>
 
       <div
-        className=" items-center h-12 gap-2"
+        className=" items-center h-12 gap-2 cursor-pointer"
         onClick={() => selectFacility("Event Space")}>
         <div className="flex justify-center mb-2">
           <i class="fa-solid fa-champagne-glasses fa-xl"></i>
         </div>
-        <span className="text-lg font-sans"> Event Space</span>
+        <span className="text-lg font-sans hidden lg:block"> Event Space</span>
       </div>
     </div>
   );

@@ -16,7 +16,7 @@ function UserHistory() {
   }, []);
 
   return (
-    <div className="w-3/4 mx-auto">
+    <div className="w-full xl:w-3/4 mx-auto">
       <div>
         {bookings?.length > 0 &&
           bookings.map((booking) => (

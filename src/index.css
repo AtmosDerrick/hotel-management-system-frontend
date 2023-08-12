@@ -20,5 +20,5 @@ button {
 }
 
 button.primary {
-  @apply bg-blue-800 w-full p-2 text-white rounded-2xl;
+  @apply bg-primary w-full p-2 text-white rounded-2xl;
 }

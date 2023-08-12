@@ -16,32 +16,21 @@ function Navbar() {
     setUserRole(getuserRole);
     console.log({ userRole });
     console.log(getName);
-  }, [user]);
+  }, []);
 
   const showMenu = () => {
     setShowMenuDisplay(!showMenuDisplay);
   };
 
   return (
-    <div className="w-3/4 mx-auto py-2">
+    <div className="xl:w-3/4 w-full px-2 lg:px-0 mx-auto py-2 border-b-2">
       <header className="p-4 flex justify-between">
         <Link
-          to={userRole === "user" ? "/" : "/account"}
+          to={userRole === "user" ? "/" : "/"}
           className="flex items-center gap-1">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth={1.5}
-            stroke="currentColor"
-            className="w-8 h-8 -rotate-90">
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
-            />
-          </svg>
-          <span className="font-bold uppercase text-lg">HomeNest</span>
+          <span className="font-bold uppercase text-lg text-primary">
+            Home<span className="text-orange-500">Nest</span>
+          </span>
         </Link>
 
         <div className="flex items-center gap-2  border border-gray-300  rounded-full py-2 px-4">
